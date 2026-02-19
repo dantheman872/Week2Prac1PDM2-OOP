@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PDM2 - W2P1 - 3 Star: Animals Interacting</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="./lib/main-styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <script src="./lib/libraries/p5.min.js"></script>
+    <script src="./lib/libraries/p5.sound.min.js"></script>
+  </head>
+
+  <body>
+    <h1>2 Star - Animals Extended</h1>
+    <p>Your sketch:</p>
+    <div class="guidance">
+        <h2>Instructions</h2>
+        <div>
+            <p>This exercise builds on the 1 star exercise, so you will need to complete that exercise before beginning this one.</p>
+            <p>Your task is to extend the <code>Animal</code> class you wrote in the previous exercise with new functionality 
+            described below. Start by copying the code and assets from the last exercise.</p>
+            <h3>New Functionality</h3>
+            <p>Some animals are dangerous, some are not. Your <code>Animal</code> class should have a way to 
+            represent the dangerousness of an individual animal. You will definitely need a new attribute but you should decide:</p>
+            <ul>
+                <li>Should it be public or private? OOP best practice is to make all attributes private, unless there's a good reason why users of the class should be able to freely edit its value.</li>
+                <li>What values should it have? The sample solution uses three integers to represent not dangerous, may be dangerous, definitely dangerous, but feel free to represent this attribute in another way.</li>
+                <li>How should the dangerousness be set? Should it be set at creation via the constructor or via a method? Should it be possible to change?</li>
+            </ul>
+            <p>Lastly, modify the <code>display()</code> method to create a visual representation of danger. The video below uses a simple coloured border. Feel free to be more creative!</p>
+            <p>There are no tests for this exercise as it is open ended.</p>
+            <p>Optional extension: consider using exceptions to ensure that code using your class sets dangerousness appropriately.</p>
+            
+            <p>Example output (yours may be different, depending on your views on danger and how you want to represent it):</p>  
+            <p><img src="assets/output.png" width="600" height="400" alt="A sketch showing three animals with different border colours representing the danger level"/>
+                <!-- <video width="600" height="400" controls>
+                    <source src="./assets/exercise1-1.mov" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video> -->
+            </p>
+        </div>
+        <div>
+            <button class="btn btn-primary hint" type="button" data-bs-toggle="collapse" data-bs-target="#hint" aria-expanded="false" aria-controls="hint">
+                Hint
+            </button>
+            <div class="collapse" id="hint">
+                <div class="card card-body">
+                    <p>It is recommended that you make your new attribute private because there is no indication that users 
+                        would want to use it themselves—it is only used when the animal is displayed.
+                    </p>
+                    <p>If you would like to use exceptions, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch" target="_blank">here is the documentation</a>.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="sketch.js"></script>
+  </body>
+</html>

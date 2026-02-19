@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PDM2 - W2P1 - 1 Star: Animals</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="./lib/main-styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <script src="./lib/libraries/p5.min.js"></script>
+    <script src="./lib/libraries/p5.sound.min.js"></script>
+  </head>
+
+  <body>
+    <h1>1 Star - Animals</h1>
+    <p>Your sketch:</p>
+    <div class="guidance">
+        <h2>Instructions</h2>
+        <div>
+            <p>In this exercise, you will create and use a class following the specification below. Writing 
+                code to a specification means you have been given the exact inputs and outputs expected, including 
+                the names of all <strong>public</strong> parts of the class—it's name, constructor parameters, and method names with arguments 
+                and return types. Writing to specification can be a little bit easier than designing classes yourself but it 
+                becomes very important that you follow the specification exactly. Following specifications is an 
+                important aspect of one popular approach to software development, Test Driven Development (TDD), in which 
+                automated tests of a program are written before the program itself.
+            </p>
+            <h3>Implement the class</h3>
+            <p>Write a class that meets the following specification:</p>
+            <ul>
+                <li>Class name: <code>Animal</code></li>
+                <li>Constructor parameters: <code>x</code> (number), <code>y</code> (number), <code>image</code> (p5.js Image). The last parameter should 
+                be an image returned by p5.js's <a href="https://p5js.org/reference/#/p5/loadImage" target="_blank">loadImage()</a> function.</li>
+                <li>Public method: <code>display()</code> (no parameters or return). Draws the animal's image at its x and y coordinates.</li>
+                <li>Public method: <code>moveX(deltaX)</code>. Modifies the animal's x coordinate by <code>deltaX</code> (a number).</li>
+                <li>Public method: <code>moveY(deltaY)</code>. Modifies the animal's y coordinate by <code>deltaY</code> (a number).</li>
+            </ul>
+            <p>You may add additional attributes or methods if you like but they must be private to avoid breaking the specification. Hint: 
+                you will need private attributes to store the values passed to the contructor.
+            </p>
+            <p><strong>Run the check file for this exercise.</strong> It will test whether your class implementation matches the specification. You 
+            may need to comment out any incomplete starter code in order to run the tests.</p>
+            <h3>Use the class</h3>
+            <p>Complete the rest of the sketch as follows:</p>
+            <ul>
+                <li>Create three different <code>Animal</code> objects with different images and place them at different locations 
+                on the canvas. You may use images downloaded from the internet or the images provided in the assets folder. The starter code includes one <code>Animal</code> (although the 
+                call to the constructor is missing arguments). You may reuse this object or start over from scratch.</li>
+                <li>In <code>draw()</code>, display all animals using their <code>display()</code> method.</li>
+                <li>Complete the implementation of <code>keyPressed()</code> to move each animal using the WASD keys and 
+                    the <code>moveX</code> and <code>moveY</code> methods.</li>
+            </ul>
+            <p>There are no tests for this part of the exercise.</p>
+            
+            <p>Expected output:</p>  
+            <p>
+                <video width="600" height="400" controls>
+                    <source src="./assets/1star-animals.mov" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </p>
+        </div>
+        <div>
+            <button class="btn btn-primary hint" type="button" data-bs-toggle="collapse" data-bs-target="#hint" aria-expanded="false" aria-controls="hint">
+                Hint
+            </button>
+            <div class="collapse" id="hint">
+                <div class="card card-body">
+                    <p>Your class will need a private attribute for each argument passed to the constructor. Remember that 
+                        to make an attribute private, use the # symbol before its name (with no gap between # and the name).
+                    </p>
+                    <p>When you implement the constructor and other methods, you will need to call (i.e. use) the class attributes. 
+                        Remember that to use an attribute or method inside the class, you need to use <code>this.</code> before the 
+                        name. For example, if you have an attribute <code>#x</code>, you can call it in your class by typing <code>this.#x</code>.
+                    </p>
+                    <p>Before creating instances of your class in the second part of the exercise, you will need to load all images 
+                        you want to use in the <code>preload()</code> function. If you need a reminder of this step, take a look at 
+                        the <a href="https://p5js.org/reference/#/p5/loadImage" target="_blank">loadImage()</a> documentation. You can create your <code>Animal</code> objects in <code>preload()</code> if 
+                        you like. If you want to create them in <code>setup()</code>, you will need to store the loaded images somewhere.
+                    </p>
+                    <p>If you can't remember how to draw an image in p5.js, see the <a href="https://p5js.org/reference/#/p5/image" target="_blank">image()</a> documentation.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="sketch.js"></script>
+  </body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PDM2 - W2P1 - 3 Star: Animals Interacting</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="./lib/main-styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <script src="./lib/libraries/p5.min.js"></script>
+    <script src="./lib/libraries/p5.sound.min.js"></script>
+  </head>
+
+  <body>
+    <h1>3 Star - Animals Interacting</h1>
+    <p>Your sketch:</p>
+    <div class="guidance">
+        <h2>Instructions</h2>
+        <div>
+            <p>This exercise builds on the 1 and 2 star exercises, so you will need to complete those before beginning this one.</p>
+            <p>Once again, your task is to extend the <code>Animal</code> class you wrote in the previous exercise with new functionality 
+            described below. Start by copying the code and assets from the last exercise.</p>
+            <p>Modify the <code>Animal</code> class so that each animal can have its own sound. You should also have a public method that can be called to play the sound.</p>
+            <p>Add input controls to the sketch that will enable the user to select a single animal to be "active". Modify your <code>keyPressed()</code> implementation so 
+            that only the active animal moves. Add new functionality so that when the user clicks on the canvas, the active animal moves to the mouse location.</p>
+            <p>Finally, when one animal gets too close (you decide what that means!) to another, play the other animal's sound. For example, if animal A gets too close to animal B, 
+                animal B's sound should play. Think carefully about how to design this functionality. You may need to add new methods to your <code>Animal</code> class. Some recommendations 
+                are provided in the hint.
+            </p>
+            <p>Example output (yours should be different):</p>  
+            <p><video width="600" height="400" controls>
+                    <source src="./assets/3star.mov" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </p>
+        </div>
+        <div>
+            <button class="btn btn-primary hint" type="button" data-bs-toggle="collapse" data-bs-target="#hint" aria-expanded="false" aria-controls="hint">
+                Hint
+            </button>
+            <div class="collapse" id="hint">
+                <div class="card card-body">
+                    <p>If you need a reminder on working with audio, see <a href="https://p5js.org/reference/#/libraries/p5.sound" target="_blank">the Sound documentation</a>, especially the section on <a href="https://p5js.org/reference/#/p5.SoundFile" target="_blank">working with sound files</a>. The library is already linked.</p>
+                    <p>The <a href="https://p5js.org/reference/#group-DOM" target="_blank">DOM section of the p5.js reference</a> provides guidance on working with input controls. Buttons, a radio group, or a select are the recommended controls, of which buttons are the 
+                    easiest to work with. Styling radio groups can be quite finnicky!</p>
+                    <p>When working out the distance between two animals, you may find the p5.js <a href="https://p5js.org/reference/#/p5/dist" target="_blank">dist()</a> function helpful. In addition to deciding how close is too close, you will have to decide where and when to 
+                    calculate the distance between animals. In terms of where, you can either add a method to the <code>Animal</code> class or make a new function in the main sketch. In terms of when to check 
+                the distance between animals, aim for efficiency. You should not need to check unless an animal has moved (i.e., don't check every time <code>draw()</code> runs).</p>
+                    <p>If your <code>Animal</code> attributes are private, you will almost certainly need to add getter functions (e.g. <code>getX()</code> and <code>getY()</code>) to complete this exercise.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="sketch.js"></script>
+  </body>
+</html>
