@@ -1,108 +1,100 @@
-let animal1, animal2, animal3;
 let bear, cat, monkey;
 
-function preload(){
-
-    bear = loadImage("assets/bear.jpg")
-    cat = loadImage("assets/cat.jpg")
-    monkey = loadImage("assets/monkey.jpg")
+function preload() {
+    bear = new Animal(50, 100, loadImage("assets/bear.jpg"), 3);
+    cat = new Animal(200, 200, loadImage("assets/cat.jpg"), 1);
+    monkey = new Animal(350, 100, loadImage("assets/monkey.jpg"), 2);
 }
 
 function setup() {
-    
-    createCanvas(600,400)
-
-    const topY = 170;
-
-    const w = 360;
-    const h = 220;
-
-    animal1 = new Animal(120, topY, bear, 2, w, h);
-    animal2 = new Animal(620, topY, cat, 1, w, h);
-    animal3 = new Animal(340, 330, monkey, 0, w, h);
+    createCanvas(600, 400);
 }
 
 function draw() {
-    
-    background(220)
-    animal1.display();
-    animal2.display();
-    animal3.display();
+    background(255);
+    bear.display();
+    cat.display();
+    monkey.display();
 }
 
 function keyPressed() {
-
     if (key === "w") {
-
-        animal1.moveY(-10);
-        animal2.moveY(-10);
-        animal3.moveY(-10);
-    }
-
-    if (key === "s") {
-        
-        animal1.moveY(10);
-        animal2.moveY(10);
-        animal3.moveY(10);
-    }
-
-    if (key === "a") {
-        
-        animal1.moveX(-10);
-        animal2.moveX(-10);
-        animal3.moveX(-10);
-    }
-
-    if (key === "d") {
-        
-        animal1.moveX(10);
-        animal2.moveX(10);
-        animal3.moveX(10);
+        bear.moveY(-2);
+        cat.moveY(-5);
+        monkey.moveY(-4);
+    } else if (key === "a") {
+        bear.moveX(-2);
+        cat.moveX(-5);
+        monkey.moveX(-4);
+    } else if (key === "s") {
+        bear.moveY(2);
+        cat.moveY(5);
+        monkey.moveY(4)
+    } else if (key === "d") {
+        bear.moveX(2);
+        cat.moveX(5);
+        monkey.moveX(4);
     }
 }
 
-class Animal {
 
+/**
+ * Represents an animal image
+ */
+class Animal {
     #x;
     #y;
     #image;
-
     #dangerLevel;
-    #w
-    #h
+    // These options are the same for all Animals. The line below shows how to populate a Map at the same time as creating it.
+    static #dangerColours = new Map([[1, "green"], [2, "orange"], [3, "red"]]);
 
-    constructor(x, y, image, dangerLevel = 0, w = null, h = null){
 
+    /**
+     * Creates a new Animal
+     * @param {number} x The x coordinate
+     * @param {number} y The y coordinate
+     * @param {Image} image A p5.js image object to represent the animal
+     * @param {number} dangerLevel An integer indicating the animal's dangerousness. Acceptable values are 1 (no danger), 2 (may be dangerous), 3 (definitely dangerous)
+     */
+    constructor(x, y, image, dangerLevel) {
         this.#x = x;
         this.#y = y;
         this.#image = image;
-        this.setDangerLevel(dangerLevel);
-        this.#w;
-        this.#h;        
+        if (!Animal.#dangerColours.has(dangerLevel)) {
+            throw "Invalid danger level! Must be 1, 2, or 3."
+        }
+        this.#dangerLevel = dangerLevel;
     }
 
-    display(){
 
-        let borderCol;
-        let borderThickness;
-        
-        const pad = 6;
-        noFill();
-        stroke(borderCol);
-        strokeWeight(borderThickness);
-
-        image(this.image, this.x, this.y)
-        
-        rect(this.x, this.y, image.width)
+    /**
+     * Shows the animal's image at its x and y coordinates.
+     */
+    display() {
+        const w = 200;
+        const h = 133;
+        noStroke();
+        fill(Animal.#dangerColours.get(this.#dangerLevel));
+        rect(this.#x - 5, this.#y - 5, w + 10, h + 10)
+        image(this.#image, this.#x, this.#y, w, h);
     }
 
-    moveY(speed){
 
-        this.y += speed
+    /**
+     * Change the x coordinate by the amount provided
+     * @param {number} deltaX The amount to move on the x axis
+     */
+    moveX(deltaX) {
+        this.#x += deltaX;
     }
 
-    moveX(speed){
 
-        this.x += speed
+    /**
+     * Change the y coordinate by the amount provided
+     * @param {number} deltaY The amount to move on the y axis
+     */
+    moveY(deltaY) {
+        this.#y += deltaY;
     }
 }
